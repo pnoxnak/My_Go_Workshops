@@ -1,5 +1,9 @@
 package main
 
+import (
+	"workshops/restful"
+)
+
 func main() {
 
 	//workshop1.Enbuyukbulucu()
@@ -55,16 +59,15 @@ func main() {
 		fmt.Printf("%v ürününün değeri: %v ve markası: %v\n", urun.Name, urun.Unitprice, urun.Brand)
 		urun.Uruntanit("Mükremin")
 	*/
-
 	/*
-		go dersler.Go_routines1()
-		time.Sleep(2 * time.Millisecond)
-		go dersler.Go_routines2()
+	   // ###################Go rutinleri
+	   	go dersler.Go_routines1()
+	   	time.Sleep(2 * time.Millisecond)
+	   	go dersler.Go_routines2()
 
-		time.Sleep(6 * time.Second)
-		fmt.Printf("Bitti")
+	   	time.Sleep(6 * time.Second)
+	   	fmt.Printf("Bitti")
 	*/
-
 	// yenikayit := odevler.Yenikayitekle("mükremin", "akkaya", "deneme@deneme.deneme")
 	// fmt.Println(yenikayit)
 	//------------------------------------------------------------------
@@ -90,4 +93,45 @@ func main() {
 		fmt.Println(ogrenci.CalculateAverage())
 	*/
 
+	//----------------go channels kullanımı----------------
+	/*
+		//kanal oluşturuluyor
+		tekch := make(chan int)
+		ciftch := make(chan int)
+
+		go dersler.Ciftsayilar(ciftch)
+		go dersler.Teksayilar(tekch)
+
+		toplam1, toplam2 := <-tekch, <-ciftch
+		fmt.Println("çarpım: ", toplam1*toplam2)
+	*/
+	//-----------workshop5--------------------
+	/*
+		ch1 := make(chan string)
+		ch2 := make(chan string)
+
+		go workshop5.LongRunningTask(ch1)
+		go workshop5.ShortRunningTask(ch2)
+
+		for i := 0; i < 2; i++ {
+			select {
+			case msg1 := <-ch1:
+				fmt.Println(msg1)
+			case msg2 := <-ch2:
+				fmt.Println(msg2)
+			}
+		}
+	*/
+
+	//interfaces.Mainde_kullanilacak()
+	//odevler.For_main()
+
+	//odevler.Mainicin()
+
+	// defer_statement.Demo1()
+	// defer_statement.Demo2()
+	// errorhandling.Demo1()
+	// errorhandling.Demo2()
+
+	restful.Demo2()
 }
